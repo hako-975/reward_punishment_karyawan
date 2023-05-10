@@ -50,7 +50,7 @@
 <body>
     <?php include_once 'navbar.php'; ?>
 
-	<div class="container">
+	<div class="container anti-navbar">
 		<form method="post" class="form">
 			<img src="img/logo.png" alt="Logo">
 		  	<h2 class="title">Form Login</h2>

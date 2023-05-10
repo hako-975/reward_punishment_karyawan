@@ -19,7 +19,6 @@
 	        OR tempat_acara LIKE '%$cari%')
 			ORDER BY tanggal_acara ASC");
 	}
-
 ?>
 
 <html>
