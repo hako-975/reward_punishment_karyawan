@@ -62,16 +62,16 @@
 					<th>Aksi</th>
 				</tr>
 				<?php $i = 1; ?>
-				<?php foreach ($reward as $dp): ?>
+				<?php foreach ($reward as $dr): ?>
 					<tr>
 						<td><?= $i++; ?></td>
-						<td><?= $dp['reward']; ?></td>
-						<td><?= $dp['keterangan']; ?></td>
-						<td><?= date("d-m-Y, H:i", strtotime($dp['tanggal_reward'])); ?></td>
-						<td><?= $dp['nama_karyawan']; ?></td>
+						<td><?= $dr['reward']; ?></td>
+						<td><?= $dr['keterangan']; ?></td>
+						<td><?= date("d-m-Y, H:i", strtotime($dr['tanggal_reward'])); ?></td>
+						<td><a href="detail_karyawan.php?id_karyawan=<?= $dr['id_karyawan']; ?>"><?= $dr['nama_karyawan']; ?></a></td>
 						<td>
-							<a href="ubah_reward.php?id_reward=<?= $dp['id_reward']; ?>" class="button">Ubah</a>
-							<a href="hapus_reward.php?id_reward=<?= $dp['id_reward']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus Data Reward <?= $dp['reward']; ?>?')" class="button">Hapus</a>
+							<a href="ubah_reward.php?id_reward=<?= $dr['id_reward']; ?>" class="button">Ubah</a>
+							<a href="hapus_reward.php?id_reward=<?= $dr['id_reward']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus Data Reward <?= $dr['reward']; ?>?')" class="button">Hapus</a>
 						</td>
 					</tr>
 				<?php endforeach ?>

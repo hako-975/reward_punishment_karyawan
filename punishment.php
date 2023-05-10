@@ -68,7 +68,7 @@
 						<td><?= $dp['punishment']; ?></td>
 						<td><?= $dp['keterangan']; ?></td>
 						<td><?= date("d-m-Y, H:i", strtotime($dp['tanggal_punishment'])); ?></td>
-						<td><?= $dp['nama_karyawan']; ?></td>
+						<td><a href="detail_karyawan.php?id_karyawan=<?= $dp['id_karyawan']; ?>"><?= $dp['nama_karyawan']; ?></a></td>
 						<td>
 							<a href="ubah_punishment.php?id_punishment=<?= $dp['id_punishment']; ?>" class="button">Ubah</a>
 							<a href="hapus_punishment.php?id_punishment=<?= $dp['id_punishment']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus Data Punishment <?= $dp['punishment']; ?>?')" class="button">Hapus</a>

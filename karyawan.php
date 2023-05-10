@@ -78,6 +78,7 @@
 						<td><?= mysqli_num_rows($reward); ?></td>
 						<td><?= mysqli_num_rows($punishment); ?></td>
 						<td>
+							<a href="detail_karyawan.php?id_karyawan=<?= $dk['id_karyawan']; ?>" class="button">Detail</a>
 							<a href="ubah_karyawan.php?id_karyawan=<?= $dk['id_karyawan']; ?>" class="button">Ubah</a>
 							<a href="hapus_karyawan.php?id_karyawan=<?= $dk['id_karyawan']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus Data Karyawan <?= $dk['nama_karyawan']; ?>?')" class="button">Hapus</a>
 						</td>

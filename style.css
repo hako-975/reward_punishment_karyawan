@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-  padding: 0 50px;
+  padding: 10px 50px;
 }
 
 .navbar {
@@ -293,3 +293,9 @@ body {
   text-align: left;
   border: 1px solid #bbb;
 }
+
+.margin-top-25 {
+  margin-top: 25px;
+}
+
+
