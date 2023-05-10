@@ -13,12 +13,13 @@
 
 	if (isset($_POST['btnCari'])) {
 		$cari = $_POST['cari'];
-		$acara = mysqli_query($koneksi, "SELECT * FROM acara INNER JOIN user ON acara.id_user = user.id_user WHERE acara.id_user = '$id_user' 
-	        AND user.id_user = '$id_user' 
-	        AND (nama_acara LIKE '%$cari%' 
-	        OR tanggal_acara LIKE '%$cari%'
-	        OR tempat_acara LIKE '%$cari%')
-			ORDER BY tanggal_acara ASC");
+		$karyawan = mysqli_query($koneksi, "SELECT * FROM karyawan 
+			WHERE 
+			nama_karyawan LIKE '%$cari%' 
+	        OR jenis_kelamin LIKE '%$cari%'
+	        OR alamat_karyawan LIKE '%$cari%'
+	        OR whatsapp_karyawan LIKE '%$cari%'
+			ORDER BY nama_karyawan ASC");
 	}
 ?>
 
@@ -32,7 +33,7 @@
 
 	<div class="container anti-navbar">
 		<h1 class="float-left">Karyawan</h1>
-		<a href="" class="float-right button">Tambah Karyawan</a>
+		<a href="tambah_karyawan.php" class="float-right button">Tambah Karyawan</a>
         <div class="clear"></div>
 	</div>
 
@@ -45,7 +46,8 @@
     	<?php if (isset($_POST['cari'])): ?>
         	<div class="clear">
         		<h2>Cari: <?= $_POST['cari']; ?></h2>
-	        	<button type="button" onclick="return window.location.href='index.php'" class="button">Reset</button>
+        		<h2>Ditemukan: <?= mysqli_num_rows($karyawan); ?></h2>
+	        	<a href="karyawan.php" class="button">Reset</a>
         	</div>
     	<?php endif ?>
         <div class="table-responsive clear">
@@ -72,24 +74,12 @@
 						<td><?= $dk['nama_karyawan']; ?></td>
 						<td><?= $dk['jenis_kelamin']; ?></td>
 						<td><?= $dk['alamat_karyawan']; ?></td>
-						<?php 
-							$phone_number = $dk['whatsapp_karyawan']; 
-
-							// Remove the leading "+62" or "08"
-							$phone_number = ltrim($phone_number, "+0");
-							$phone_number = ltrim($phone_number, "62");
-
-							// Add the "62" prefix if it is not present
-							if (substr($phone_number, 0, 2) !== "62") {
-							  $phone_number = "62" . $phone_number;
-							}
-						 ?>
-						<td><a href="https://wa.me/<?= $phone_number; ?>" target="_blank" class="button"><?= $phone_number; ?></a></td>
+						<td><a href="https://wa.me/<?= $dk['whatsapp_karyawan']; ?>" target="_blank" class="button"><?= $dk['whatsapp_karyawan']; ?></a></td>
 						<td><?= mysqli_num_rows($reward); ?></td>
 						<td><?= mysqli_num_rows($punishment); ?></td>
 						<td>
-							<a href="" class="button">Ubah</a>
-							<a href="" class="button">Hapus</a>
+							<a href="ubah_karyawan.php?id_karyawan=<?= $dk['id_karyawan']; ?>" class="button">Ubah</a>
+							<a href="hapus_karyawan.php?id_karyawan=<?= $dk['id_karyawan']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus Data Karyawan <?= $dk['nama_karyawan']; ?>?')" class="button">Hapus</a>
 						</td>
 					</tr>
 				<?php endforeach ?>
