@@ -24,7 +24,7 @@
 <html>
 <head>
 	<?php include_once 'head.php'; ?>
-	<title>Dashboard - <?= $data_user['username']; ?></title>
+	<title>Dashboard</title>
 </head>
 <body>
 	<?php include_once 'navbar.php'; ?>
