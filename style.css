@@ -175,21 +175,6 @@ body {
     text-align: center;
     margin-top: 20px;
   }
-
-  .card-button {
-    position: absolute;
-    top: auto;
-    left: auto;
-    bottom: 30px;
-    right: 20px;
-
-  } 
-}
-
-.belum-ada-acara {
-  clear: both;
-  text-align: center;
-  margin-top: 50px;
 }
 
 .table-profile {
@@ -298,4 +283,23 @@ body {
   margin-top: 25px;
 }
 
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
 
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background-color: #0e153a;
+  color: #fff;
+  border-radius: 20px;
+  padding: 10px 30px;
+  text-decoration: none;
+  text-align: center;
+}

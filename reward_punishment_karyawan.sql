@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Bulan Mei 2023 pada 18.00
+-- Waktu pembuatan: 10 Bulan Mei 2023 pada 20.19
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.2.0
 
@@ -35,13 +35,6 @@ CREATE TABLE `karyawan` (
   `whatsapp_karyawan` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `karyawan`
---
-
-INSERT INTO `karyawan` (`id_karyawan`, `nama_karyawan`, `jenis_kelamin`, `alamat_karyawan`, `whatsapp_karyawan`) VALUES
-(3, 'Andri Firman Saputra', 'L', 'Jl. AMD Babakan Pocis No. 88', '6287808675313');
-
 -- --------------------------------------------------------
 
 --
@@ -52,7 +45,7 @@ CREATE TABLE `punishment` (
   `id_punishment` int(11) NOT NULL,
   `punishment` enum('TEGURAN LISAN','TEGURAN TERTULIS','SKORSING','PEMBERHENTIAN') NOT NULL,
   `keterangan` text NOT NULL,
-  `tanggal_punishment` date NOT NULL,
+  `tanggal_punishment` datetime NOT NULL,
   `id_karyawan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -66,7 +59,7 @@ CREATE TABLE `reward` (
   `id_reward` int(11) NOT NULL,
   `reward` text NOT NULL,
   `keterangan` text NOT NULL,
-  `tanggal_reward` date NOT NULL,
+  `tanggal_reward` datetime NOT NULL,
   `id_karyawan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -88,7 +81,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `nama_lengkap`) VALUES
-(1, 'admin', '$2y$10$YyhiL0fHVqiT9MuTPSkFhO5Napx1HFY3qwe6TIzdSezFyJiR9N4bu', 'Administrator');
+(1, 'admin', '$2y$10$xr0T3NWU6iYqPnj/.ZCR/eeCZz0gqxlSdtDE0EkYT7cCafVHWSWRa', 'Administrator');
 
 --
 -- Indexes for dumped tables
@@ -128,7 +121,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `karyawan`
 --
 ALTER TABLE `karyawan`
-  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `punishment`
@@ -140,7 +133,7 @@ ALTER TABLE `punishment`
 -- AUTO_INCREMENT untuk tabel `reward`
 --
 ALTER TABLE `reward`
-  MODIFY `id_reward` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_reward` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
