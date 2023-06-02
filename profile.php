@@ -17,7 +17,7 @@
 </head>
 <body>
 	<div class="container anti-navbar">
-		<h1 class="daftar-acara">Profile - <?= $data_user['username']; ?></h1>
+		<h1>Profile - <?= $data_user['username']; ?></h1>
         <table cellpadding="10" class="table-profile">
         	<tr>
         		<th>Username:</th>
